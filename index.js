@@ -4,8 +4,10 @@ const {app, BrowserWindow} = require('electron'),
 
 function createWindow(){
 	let window = new BrowserWindow({
-		width: 800,
+		width: 1000,
 		height: 800,
+		minHeight: 500,
+  		minWidth: 500,
 		frame: false
 	});
 

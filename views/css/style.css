@@ -4,6 +4,7 @@ body{
 	background-color: #212121;
 	color: #FAFAFA;
 	font-family: sans-serif;
+	overflow: hidden;
 }
 
 @font-face {
@@ -50,18 +51,21 @@ body{
  	top: 0px;
  	align-items: center;
 	left: 12px;
-	line-height: 22px;
-	font-size: 14px;
+	line-height: 25px;
+	font-size: 13px;
+	font-weight: lighter;
 }
 
 .titleBarBtns {
 	-webkit-app-region: no-drag;
  	position: fixed;
  	top: 0px;
+ 	max-height: 27px;
  	right: 0;
  	padding-right: 6px;
  	float: right;
  	background: #212121;
+ 	border-bottom: 2px solid #4285F4;
 }
 
 .close:hover{
@@ -82,7 +86,7 @@ body{
 
 .close{
 	color: #fff;
-    text-shadow: 0 0px #fff;
+    text-shadow: 0 0px transparent;
     opacity: 1;
 }
 
@@ -90,3 +94,114 @@ body{
 	font-size: 18px !important;
 	padding: 5px;
 }
+
+::-webkit-scrollbar {     
+    background-color: #212121;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive, ::-webkit-scrollbar-thumb {
+	background: #333333;
+}
+
+.nav-tabs{
+	border: none;
+}
+
+.nav-tabs .nav-item.show .nav-link{
+	background-color: transparent;
+	border-color: transparent;
+	color: #fff;
+}
+
+.nav-tabs .nav-link.active{
+	background-color: transparent;
+	border-color: transparent;
+	border-bottom: 2px solid #4285F4;
+	color: #fff;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus{
+	border: transparent;
+	transform: scale(1);
+}
+
+.tab-content {
+	padding: 10px;
+}
+
+.tab-pane {
+	padding: 15px 0; 
+}
+
+.nav-item{
+	width: 150px;
+}
+
+.nav-item a{
+	color: #909FA6 !important;
+}
+
+.nav-tabs li:hover a, .nav-tabs li:hover a:hover {
+	border: none;
+	color: #909FA6 !important;
+	background: transparent; 
+}
+
+.tab-pane{
+	padding-top: 5px;
+}
+
+.nav-tabs li a::after {
+	content: "";
+	background: #4285F4;
+	height: 2px;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: -1px;
+	transition: all 250ms ease 0s;
+	transform: scale(0);
+}
+
+.nav-tabs li:hover a::after { 
+	transform: scale(1); 
+}
+
+.tabClose{
+    float: right;
+    font-size: 1.1rem;
+    margin-right: -15px;
+    line-height: 1;
+    font-weight: 700;
+    color: #FAFAFA;
+    text-shadow: none;
+    opacity: .5;
+}
+
+.tabClose .material-icons{
+	font-size: 15px !important;
+}
+
+.CodeMirror-gutters{
+	position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    z-index: 3;
+    border-right: 1px solid #ddd;
+    background-color: #f7f7f7;
+    white-space: nowrap;
+}
+
+.nav-link{
+	font-size: 14px !important;
+}
+
+div.CodeMirror {
+	height: 90vh;
+	min-height: 90vh;
+	margin-right: -20px;
+	margin-left: -10px;
+}
+/*.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }*/

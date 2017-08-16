@@ -1,0 +1,14 @@
+{
+  "name": "desktopapp",
+  "version": "1.0.0",
+  "description": "test Native desktop app",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron"
+  },
+  "author": "sravan nerella",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.5"
+  }
+}

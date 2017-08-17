@@ -20,6 +20,8 @@ function createWindow(){
 			slashes: true
 		})
 	);
+
+	window.setMenu(null);
 }
 
 app.on('ready', createWindow);

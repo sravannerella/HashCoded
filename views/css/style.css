@@ -14,6 +14,13 @@ body{
   src: url("font/material.woff2") format('woff2');
 }
 
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url("font/Roboto.woff2") format('woff2');
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -68,6 +75,11 @@ body{
  	border-bottom: 2px solid #4285F4;
 }
 
+#itemBar{
+	background: #1F1F1F;
+	min-height: 38px;
+}
+
 .close:hover{
 	color: #FF5370;
 	opacity: 1;
@@ -77,11 +89,13 @@ body{
 .maximize:hover{
 	color: #3BA299;
 	opacity: 1;
+	cursor: default;
 }
 
 .minimize:hover{
 	color: #FFCB6B;
 	opacity: 1;
+	cursor: default;
 }
 
 .close{
@@ -179,6 +193,10 @@ body{
     opacity: .5;
 }
 
+.tabClose:hover, .tabClose:active, .tabClose:focus{
+	color: #4285F4;
+}
+
 .tabClose .material-icons{
 	font-size: 15px !important;
 }
@@ -196,6 +214,11 @@ body{
 
 .nav-link{
 	font-size: 14px !important;
+}
+
+#codeArea{
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
 }
 
 div.CodeMirror {

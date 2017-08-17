@@ -10,9 +10,17 @@
 	<link rel="stylesheet" href="CodeMirror/addon/hint/show-hint.css">
 	
 	<style type="text/css">
-      .cm-matchhighlight {background: #4F4F4F; border-color: #00000030;}
-   	  .activeline {background: #fff !important;} 
-      .CodeMirror-matchingbracket{background-color:#4F4F4F; border-color: #00000030; text-decoration: none !important; border-bottom: 1px solid #fff;} 
+      .cm-matchhighlight {
+      	background: #4F4F4F;
+      	border-color: #00000030;
+      }
+   	  .activeline {
+   	  	background: #fff !important;
+   	  } 
+      .CodeMirror-matchingbracket {
+      	text-decoration: none !important;
+      	border-bottom: 0.5px solid #fff;
+      } 
     </style>
 
 </head>
@@ -47,7 +55,7 @@
 						<hr>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="new">
-						<div id="codeArea"></div> 
+						<div id="codeArea" onclick="addInstance(this.id);" style="width: 100%;height: 100vh;"></div> 
 					</div>
 				</div>
 			</div>
@@ -65,42 +73,88 @@
 	<script src="CodeMirror/addon/hint/show-hint.js"></script>
 	<script src="CodeMirror/addon/hint/css-hint.js"></script>
 	<script src="CodeMirror/addon/edit/matchbrackets.js"></script>
-
+	
+	<script src="CodeMirror/addon/edit/closebrackets.js"></script>
 	<script src="CodeMirror/addon/scroll/annotatescrollbar.js"></script>
 	<script src="CodeMirror/addon/search/matchesonscrollbar.js"></script>
 	<script src="CodeMirror/addon/search/searchcursor.js"></script>
 	<script src="CodeMirror/addon/search/match-highlighter.js"></script>
 
 	<script>
-		var editor = CodeMirror(document.getElementById("codeArea"), {
-			tabSize: 3,
-			lineNumbers: true,
-			autofocus: true,
-			matchBrackets: true,
-			styleActiveLine: true,
-			theme: "material",
-			lineWrapping: true,
-			autoRefresh: true,
-			smartIndent: true,
-			highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true},
-			extraKeys: {
-                "Ctrl-Space": "autocomplete",
-                "Shift-Tab": function(cm){
-                	CodeMirror.commands.indentAuto(editor);
-                }
-            },
-			fixedGutter: true
-		});
+		var instances = [];
+		
+		function addInstance(id){
+			var val = false;
 
-		editor.on('inputRead', function(editor, event){
-			if (!editor.state.completionActive) { 
-				CodeMirror.commands.autocomplete(editor, null, {completeSingle: false});
+			if(instances.length == 0){
+				val = true;
 			}
-		});
+			for (var i = 0; i < instances.length; i++) {
+				if(instances[i].options.name === id){
+					console.log("Found");
+					val = false;
+					break;
+				} else if(instances[i].options.name === id.options){
+					val = false;
+					break;
+				} else{
+					val = true;
+				}
+			}
 
-		setTimeout(function() {
-			editor.refresh();
-		}, 1);
+			if(val){
+				instances.push(id);
+				var instanceId = $.inArray(id, instances);
+				codeArea(instanceId);
+			}
+		}
+
+		function codeArea(id){
+			var elementId = instances[id];
+			console.log(elementId, instances);
+			instances[id] = CodeMirror(document.getElementById(elementId), {
+				tabSize: 4,
+				indentUnit: 4,
+				lineNumbers: true,
+				autofocus: true,
+				matchBrackets: true,
+				styleActiveLine: true,
+				theme: "material",
+				lineWrapping: true,
+				autoRefresh: true,
+				smartIndent: true,
+				name: elementId,
+				autoCloseBrackets: true,
+				highlightSelectionMatches: {annotateScrollbar: true},
+				extraKeys: {
+	                "Ctrl-Space": "autocomplete",
+	                "Ctrl-N": function(cm){
+	                	$("#itemBar").dblclick();
+	                },
+	                "Ctrl-W": function(cm){
+	                	var editorName = '#' + cm.options.name;
+	                	var attrId = $(editorName).parent().attr('id');
+	                	var find = 'a[href="#'+attrId+'"]';
+	                	$(find).children('span.tabClose').click()
+	                	// $(".tabClose").click();
+	                },
+	                "Shift-Tab": function(cm){
+	                	CodeMirror.commands.indentAuto(instances[id]);
+	                }
+	            },
+				fixedGutter: true
+			});
+
+			instances[id].on('inputRead', function(editor, event){
+				if (!editor.state.completionActive) { 
+					CodeMirror.commands.autocomplete(editor, null, {completeSingle: false});
+				}
+			});
+
+			setTimeout(function() {
+				instances[id].refresh();
+			}, 1);
+		}
 	</script>
 
 </body>

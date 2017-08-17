@@ -75,7 +75,7 @@ body{
 }
 
 .maximize:hover{
-	color: #C3E88D;
+	color: #3BA299;
 	opacity: 1;
 }
 
@@ -204,4 +204,5 @@ div.CodeMirror {
 	margin-right: -20px;
 	margin-left: -10px;
 }
+
 /*.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }*/

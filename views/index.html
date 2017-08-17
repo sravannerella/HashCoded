@@ -7,6 +7,14 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="CodeMirror/theme/material.css">
 	<link rel="stylesheet" href="CodeMirror/lib/codemirror.css">
+	<link rel="stylesheet" href="CodeMirror/addon/hint/show-hint.css">
+	
+	<style type="text/css">
+      .cm-matchhighlight {background: #4F4F4F; border-color: #00000030;}
+   	  .activeline {background: #fff !important;} 
+      .CodeMirror-matchingbracket{background-color:#4F4F4F; border-color: #00000030; text-decoration: none !important; border-bottom: 1px solid #fff;} 
+    </style>
+
 </head>
 <body>
 
@@ -49,19 +57,50 @@
 	<script src="js/titleBarControls.js"></script>
 	<script src="js/tether.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
+	
 	<script src="CodeMirror/lib/codemirror.js"></script>
 	<script src="CodeMirror/mode/javascript/javascript.js"></script>
 
+	<script src="CodeMirror/addon/hint/anyword-hint.js"></script>
+	<script src="CodeMirror/addon/hint/show-hint.js"></script>
+	<script src="CodeMirror/addon/hint/css-hint.js"></script>
+	<script src="CodeMirror/addon/edit/matchbrackets.js"></script>
+
+	<script src="CodeMirror/addon/scroll/annotatescrollbar.js"></script>
+	<script src="CodeMirror/addon/search/matchesonscrollbar.js"></script>
+	<script src="CodeMirror/addon/search/searchcursor.js"></script>
+	<script src="CodeMirror/addon/search/match-highlighter.js"></script>
+
 	<script>
 		var editor = CodeMirror(document.getElementById("codeArea"), {
-			tabSize: 5,
+			tabSize: 3,
 			lineNumbers: true,
+			autofocus: true,
+			matchBrackets: true,
+			styleActiveLine: true,
 			theme: "material",
 			lineWrapping: true,
+			autoRefresh: true,
 			smartIndent: true,
+			highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true},
+			extraKeys: {
+                "Ctrl-Space": "autocomplete",
+                "Shift-Tab": function(cm){
+                	CodeMirror.commands.indentAuto(editor);
+                }
+            },
 			fixedGutter: true
 		});
+
+		editor.on('inputRead', function(editor, event){
+			if (!editor.state.completionActive) { 
+				CodeMirror.commands.autocomplete(editor, null, {completeSingle: false});
+			}
+		});
+
+		setTimeout(function() {
+			editor.refresh();
+		}, 1);
 	</script>
 
 </body>

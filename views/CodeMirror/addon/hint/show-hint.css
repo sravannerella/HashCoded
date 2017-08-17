@@ -10,27 +10,25 @@
   -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
   -moz-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
   box-shadow: 2px 3px 5px rgba(0,0,0,.2);
-  border-radius: 3px;
-  border: 1px solid silver;
 
-  background: white;
+  background: #2f2f2f;
   font-size: 90%;
-  font-family: monospace;
-
-  max-height: 20em;
+  font-family: sans-serif;
+  max-width: 175px;
+  max-height: 150px;
   overflow-y: auto;
 }
 
 .CodeMirror-hint {
   margin: 0;
-  padding: 0 4px;
+  padding: 0 20px;
   border-radius: 2px;
   white-space: pre;
-  color: black;
+  color: #fff;
   cursor: pointer;
 }
 
 li.CodeMirror-hint-active {
-  background: #08f;
-  color: white;
+  background: #dadada;
+  color: black;
 }

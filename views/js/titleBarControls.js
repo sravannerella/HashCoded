@@ -39,7 +39,7 @@ $("#itemBar").on('click', '#item', function(e){
 $("#itemBar").on('dblclick', function(){
 	var id = $("#itemBar").children().length;
 	$('#itemBar').append('<li role="presentation" id="item" class="nav-item"><a href="#new'+ id +'" aria-controls="new'+ id +'" data-toggle="tab" role="tab" class="nav-link">untitled<span class="tabClose"><i class="material-icons s18">close</i></span></a></li>');
-	$('.tab-content').append('<div role="tabpanel" class="tab-pane" aria-expanded="false" id="new'+id+'"><p>Text'+id+'</p></div>');
+	$('.tab-content').append('<div role="tabpanel" class="tab-pane" aria-expanded="false" id="new'+id+'"><div id="codeArea"></div></div>');
 	var nid = '#new'+id;
 	$(nid).click();
 });

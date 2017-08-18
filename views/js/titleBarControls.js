@@ -26,7 +26,6 @@ $(".close").click(function(){
 
 $("#itemBar").on('click', '.tabClose', function(){
 	var anchor = $(this).parent();
-	console.log("THIS: ", $(this));
     $(anchor.attr('href')).remove();
 	$(this).parent().parent().remove();
 	var id = anchor.attr('href').substr(1, anchor.attr('href').length);
@@ -37,7 +36,6 @@ $("#itemBar").on('click', '.tabClose', function(){
 			instances.splice(i, 1);
 			break;
 		}else {
-			console.log(i);
 			final = i;
 		}
 	}
@@ -46,14 +44,19 @@ $("#itemBar").on('click', '.tabClose', function(){
 	var val = $(".nav-tabs li").children('a').last().attr('href');
 	val = $(val).find('div[id^="codeArea"]');
 	val.click();
-	console.log("THISIS: ", val);
 });
 
 
 $("#itemBar").on('click', '#item', function(e){
 	e.preventDefault();
-	console.log($(this).children('a').attr('href'));
 	$($(this)).tab('show');
+	var id = $(this).children('a').attr('href');
+	try{
+		$(id).children('div[id^="codeArea"]').click();
+	} catch(err){
+		// console.log("nothing");
+	}
+	
 });
 
 $("#itemBar").on('dblclick', function(){

@@ -91,7 +91,11 @@
 			}
 			for (var i = 0; i < instances.length; i++) {
 				if(instances[i].options.name === id){
-					console.log("Found");
+					//Reset Focus or Cursor
+					setTimeout(function(){
+						instances[i].focus();
+					}, 1);
+					
 					val = false;
 					break;
 				} else if(instances[i].options.name === id.options){
@@ -110,8 +114,33 @@
 		}
 
 		function codeArea(id){
+			var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
+			var extraKeys = {};
+			var extraKeyMaps = {
+				"Space" : "autocomplete",
+				"N": function(cm){
+	                	$("#itemBar").dblclick();
+	            },
+	            "W": function(cm){
+	                	var editorName = '#' + cm.options.name;
+	                	var attrId = $(editorName).parent().attr('id');
+	                	var find = 'a[href="#'+attrId+'"]';
+	                	$(find).children('span.tabClose').click()
+	            },
+	            "I": function(cm){
+	                	CodeMirror.commands.indentAuto(instances[id]);
+	            }
+
+			}
+
+			for (var key in extraKeyMaps) {
+				if (extraKeyMaps.hasOwnProperty(key)) {
+			    	var runKey = (mac ? "Cmd-" : "Ctrl-") + key;
+			    	extraKeys[runKey] = extraKeyMaps[key];
+			  	}
+			}
+			
 			var elementId = instances[id];
-			console.log(elementId, instances);
 			instances[id] = CodeMirror(document.getElementById(elementId), {
 				tabSize: 4,
 				indentUnit: 4,
@@ -126,22 +155,7 @@
 				name: elementId,
 				autoCloseBrackets: true,
 				highlightSelectionMatches: {annotateScrollbar: true},
-				extraKeys: {
-	                "Ctrl-Space": "autocomplete",
-	                "Ctrl-N": function(cm){
-	                	$("#itemBar").dblclick();
-	                },
-	                "Ctrl-W": function(cm){
-	                	var editorName = '#' + cm.options.name;
-	                	var attrId = $(editorName).parent().attr('id');
-	                	var find = 'a[href="#'+attrId+'"]';
-	                	$(find).children('span.tabClose').click()
-	                	// $(".tabClose").click();
-	                },
-	                "Shift-Tab": function(cm){
-	                	CodeMirror.commands.indentAuto(instances[id]);
-	                }
-	            },
+				extraKeys: extraKeys,
 				fixedGutter: true
 			});
 
@@ -153,6 +167,7 @@
 
 			setTimeout(function() {
 				instances[id].refresh();
+				instances[id].focus();
 			}, 1);
 		}
 	</script>

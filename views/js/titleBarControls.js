@@ -32,7 +32,6 @@ $("#itemBar").on('click', '.tabClose', function(){
 	var final;
 	for (var i = 0; i < instances.length; i++) {
 		if(instances[i].options.name === id){
-			console.log("REMOVED", instances[i].options.name);
 			instances.splice(i, 1);
 			break;
 		}else {

@@ -11,12 +11,13 @@
   -moz-box-shadow: 2px 3px 5px rgba(0,0,0,.2);
   box-shadow: 2px 3px 5px rgba(0,0,0,.2);
 
-  background: #2f2f2f;
-  font-size: 90%;
+  background: #212121;
+  font-size: 18px;
   font-family: sans-serif;
-  max-width: 175px;
+  max-width: 300px;
+  min-width: 300px;
   max-height: 150px;
-  overflow-y: auto;
+  overflow-y: auto; 
 }
 
 .CodeMirror-hint {
@@ -24,11 +25,11 @@
   padding: 0 20px;
   border-radius: 2px;
   white-space: pre;
-  color: #fff;
+  color: rgba(233, 237, 237, 1);
   cursor: pointer;
 }
 
 li.CodeMirror-hint-active {
-  background: #dadada;
-  color: black;
+  background: #2D2D2D;
+  color: #fff;
 }

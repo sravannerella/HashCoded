@@ -8,7 +8,63 @@
 	<link rel="stylesheet" href="CodeMirror/theme/material.css">
 	<link rel="stylesheet" href="CodeMirror/lib/codemirror.css">
 	<link rel="stylesheet" href="CodeMirror/addon/hint/show-hint.css">
+	
+	<script>
+    	window.onload = () => {
+        	const root = {
+          		name: 'foo',
+          		children: [{
+            		name: 'bar',
+            		children: [{
+              			name: 'bar',
+              			children: [{
+                			name: 'bar',
+                			children: []
+              			}, {
+                			name: 'baz',
+                			children: []
+              			}]
+            		}, {
+              			name: 'secret',
+              			children: []
+            		}]
+          		}, {
+            		name: 'baz',
+            		children: []
+          		}, {
+            		name: 'secret',
+            		children: []
+          		}]
+        	}
 
+	        const button = document.createElement('button');
+	        
+	        button.innerText = 'click me';
+	        
+	        button.addEventListener('click', event => {
+	          root.children.push({ name: 'foo', children: [] },
+	            { name: 'bar', children: [] });
+	          tree.loop.update({ root });
+	        }, false);
+
+	        const tree = require('electron-tree-view')({
+	          root,
+	          	children: c => c.children,
+	          	label: c => c.name,
+	          	container: document.querySelector('.container'),
+	          	filter: c => (c.name !== 'secret')
+	        });
+
+	        tree.on('selected', elem => {
+	        	elem.children.push({ name: 'foo', children: [] },
+	            	{ name: 'bar', children: [] });
+	          	tree.loop.update({ root });
+	          	console.log('selected', elem);
+	        });
+
+	        tree.select(root.children[0].children[0]);
+	    }
+	</script>
 </head>
 <body>
 
@@ -21,26 +77,23 @@
 		</div>
 	</div>
 
-
 	<div class="container-fluid">
 		<div class="row mt-1">
-			<div class="col">
+			<div class="col-2" style="overflow: scroll;">
+				<p class="text-uppercase m-3" style="font-size: 13px;">open files</p>
+
+				<p class="text-uppercase m-3" style="margin-top: 34px;font-size: 13px;">Folders</p>
+				<div class="container"></div>
+			</div>
+			<div class="col-10">
 				<ul class="nav nav-tabs" id="itemBar" role="tablist">
 					<li role="presentation" id="item" class="nav-item">
-						<a href="#home" aria-controls="home" data-toggle="tab" role="tab" class="nav-link active">Home<span class="tabClose"><i class="material-icons s18">close</i></span></a>
-					</li>
-					<li role="presentation" id="item" class="nav-item">
-						<a href="#new" aria-controls="new" data-toggle="tab" role="tab" class="nav-link">untitled<span class="tabClose"><i class="material-icons s18">close</i></span></a>
+						<a href="#new" aria-controls="new" data-toggle="tab" role="tab" class="nav-link active">untitled<span class="tabClose"><i class="material-icons s18">close</i></span></a>
 					</li>
 				</ul>
 
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="home">
-						<h2 class="ml-1">#<span style="color: #89DDFF;font-weight: bolder;">Coder</span></h2>
-						<h4 clsas="afterLine" style="font-size: 1.1rem; font-weight: bold;">Simply Edit</h4>
-						<hr>
-					</div>
-					<div role="tabpanel" class="tab-pane" id="new">
+					<div role="tabpanel" class="tab-pane active" id="new">
 						<div id="codeArea" onclick="addInstance(this.id);" style="width: 100%;height: 100vh;"></div> 
 					</div>
 				</div>
@@ -204,6 +257,8 @@
 			}, 1);
 		}
 	</script>
+
+	<script src="js/plugin/treeview.js"></script>
 
 </body>
 </html>

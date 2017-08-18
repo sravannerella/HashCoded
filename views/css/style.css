@@ -221,12 +221,13 @@ body{
 	line-height: 1.5;
 }
 
-div.CodeMirror {
+div.CodeMirror,.tab-content {
 	height: 90vh;
 	min-height: 90vh;
 	margin-right: -20px;
 	margin-left: -10px;
 }
+
 .cm-matchhighlight {
 	background: #4F4F4F;
 	border-color: #00000030;
@@ -239,5 +240,9 @@ div.CodeMirror {
 .CodeMirror-matchingbracket {
 	text-decoration: none !important;
 	border-bottom: 0.5px solid #fff;
-} 
+}
+
+.tree-view span{
+	color: #fff;
+}
 /*.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }*/

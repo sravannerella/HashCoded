@@ -40,9 +40,14 @@ $("#itemBar").on('click', '.tabClose', function(){
 	}
 
 	$(".nav-tabs li").children('a').last().click();
-	var val = $(".nav-tabs li").children('a').last().attr('href');
-	val = $(val).find('div[id^="codeArea"]');
-	val.click();
+
+	if( $(".nav-tabs li").children('a').length === 0 ) {
+		$("#itemBar").dblclick();
+	} else {
+		var val = $(".nav-tabs li").children('a').last().attr('href');
+		val = $(val).find('div[id^="codeArea"]');
+		val.click();
+	}
 });
 
 

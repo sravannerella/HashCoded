@@ -1,0 +1,1 @@
+$(".tree-view").children('div.elem').children("a.header").child('div').child('img');

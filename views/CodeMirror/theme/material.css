@@ -33,9 +33,9 @@
 .cm-s-material .cm-operator { color: #82B1FF; }
 .cm-s-material .cm-variable-2 { color: #80CBC4;}
 .cm-s-material .cm-variable-3, .cm-s-material .cm-type { color: #82B1FF; }
-.cm-s-material .cm-builtin { color: #DECB6B; }
-.cm-s-material .cm-atom { color: #F77669; }
-.cm-s-material .cm-number { color: #F77669; }
+.cm-s-material .cm-builtin { color: #F78C6C; }
+.cm-s-material .cm-atom { color: #F07178; }
+.cm-s-material .cm-number { color: #F07178; }
 
 .cm-s-material .cm-def { color: #FAFAFA; }
 
@@ -47,12 +47,12 @@
 .cm-s-material .cm-meta { color: #80CBC4; }
 .cm-s-material .cm-attribute { color: #FFCB6B; }
 .cm-s-material .cm-property { color: #80CBAE; font-style: italic; letter-spacing: 0px; }
-.cm-s-material .cm-qualifier { color: #DECB6B; }
-.cm-s-material .cm-variable-3, .cm-s-material .cm-type { color: #DECB6B; }
-.cm-s-material .cm-tag { color: rgba(255, 83, 112, 1); }
+.cm-s-material .cm-qualifier { color: #F07178; }
+.cm-s-material .cm-variable-3, .cm-s-material .cm-type { color: #F78C6C; }
+.cm-s-material .cm-tag { color: #F07178; }
 .cm-s-material .cm-error {
   color: rgba(255, 255, 255, 1.0);
-  background-color: #EC5F67;
+  background-color: #F07178;
 }
 .cm-s-material .CodeMirror-matchingbracket {
   text-decoration: underline;

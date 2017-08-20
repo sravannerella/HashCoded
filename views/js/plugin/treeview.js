@@ -37,9 +37,9 @@
 
 window.onload = () => {
 	const root = {
-  		name: 'foo',
+  		name: 'img',
   		children: [{
-    		name: 'bar',
+    		name: 'test.jpg',
     		children: [{
       			name: 'bar',
       			children: [{

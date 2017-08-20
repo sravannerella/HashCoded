@@ -233,6 +233,10 @@ div.CodeMirror,.tab-content {
 	border-color: #00000030;
 }
 
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursors {
+  z-index: 3;
+}
+
 .activeline {
   	background: #fff !important;
 } 

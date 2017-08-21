@@ -1,13 +1,16 @@
-.CodeMirror-foldmarker {
-  color: #212121;
-  font-size: 18px;
+.CodeMirror-foldmarker{
   text-align: center;
   font-family: arial;
   line-height: .15em;
   cursor: pointer;
-  border-radius: 7px;
+  align-items: center;
+  color: #212121;
+  width: 16px;
+  font-size: 17px;
   background: #FFB62C;
-  opacity: 0.5;
+  display: inline-table;
+  vertical-align: middle;
+  padding-bottom: 3px;
 }
 .CodeMirror-foldgutter {
   width: .7em;
@@ -17,8 +20,14 @@
   cursor: pointer;
 }
 .CodeMirror-foldgutter-open:after {
-  content: "\25BE";
+  content: "\0002C5";
+}
+.CodeMirror-foldgutter-open{
+  margin-top: 5px !important;
 }
 .CodeMirror-foldgutter-folded:after {
-  content: "\25B8";
+  content: ">";
+}
+.CodeMirror-foldgutter-folded:hover, .CodeMirror-foldgutter-open:hover{
+  color: #80CBC4;
 }

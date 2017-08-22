@@ -19,7 +19,7 @@
   color: rgb(83,127,126);
   border: none;
 }
-.cm-s-material .CodeMirror-guttermarker, .cm-s-material .CodeMirror-guttermarker-subtle, .cm-s-material .CodeMirror-linenumber { color: #909FA6; }
+.cm-s-material .CodeMirror-guttermarker, .cm-s-material .CodeMirror-guttermarker-subtle, .cm-s-material .CodeMirror-linenumber { color: #434343; }
 .cm-s-material .CodeMirror-cursor { border-left: 1px solid #FFCB6B; }
 .cm-s-material div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
 .cm-s-material.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.10); }

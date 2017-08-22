@@ -1,6 +1,8 @@
-const {app, BrowserWindow} = require('electron'),
+const {app, BrowserWindow, nativeImage} = require('electron'),
 	path = require('path'),
 	url = require('url');
+
+let myIcon = nativeImage.createFromPath(path.join(__dirname, 'assets/icons/png/icon.png'));
 
 function createWindow(){
 	let window = new BrowserWindow({
@@ -8,6 +10,7 @@ function createWindow(){
 		height: 800,
 		minHeight: 500,
   		minWidth: 500,
+  		icon: myIcon,
 		frame: false
 	});
 

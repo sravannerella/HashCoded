@@ -75,6 +75,7 @@ function codeArea(id){
 		tabSize: 4,
 		dragDrop: true,
 		indentUnit: 4,
+		indentWithTabs: true,
 		lineNumbers: true,
 		showCursorWhenSelecting: true,
 		autofocus: true,

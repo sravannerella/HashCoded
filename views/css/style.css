@@ -246,6 +246,39 @@ div.CodeMirror,.tab-content {
 	border-bottom: 0.5px solid #fff;
 }
 
+.titleBar img {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+}
+
+.titleBar img:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.cm-tab {
+	/*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);*/
+    background-position: right;
+    background-repeat: no-repeat;
+    background: #fff;
+    line-height: 0.1em;
+    opacity: 0.1;
+    vertical-align: middle;
+}
+
+.cm-tab::after {
+	display: inline-block;
+	width: 0px;
+	position: relative;
+	overflow: visible;
+	left: -1.4em;
+	color: #fff;
+	font-size: 6px;
+	/*vertical-align: middle;*/
+	/*line-height: 2em;*/
+}   
+
 .tree-view span{
 	color: #fff;
 }

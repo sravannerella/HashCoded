@@ -23,6 +23,13 @@ $(".close").click(function(){
 	win.close();
 });
 
+$("#titleLogo").hover(function(){
+	$("#titleLogo").attr("src", "../img/logo2.png");
+});
+
+$("#titleLogo").mouseleave(function(){
+	$("#titleLogo").attr("src", "../img/logo.png");
+});
 
 $("#itemBar").on('click', '.tabClose', function(){
 	var anchor = $(this).parent();

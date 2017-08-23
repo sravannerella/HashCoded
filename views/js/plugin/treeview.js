@@ -3,7 +3,10 @@
 // var fs = require('fs'),
 // 	path = require("path");
 
+// const dirTree = require('directory-tree');
+
 // var folderTree = {};
+// var tree;
 
 // function readDir(paths){
 // 	fs.readdir(paths, function (err, files) {
@@ -13,21 +16,16 @@
 // 	    var folder = path.basename(paths).split(path.sep).pop();
 // 	    console.log("Folder: ", folder);
 
-// 	    folderTree.name = folder;
-// 	    folderTree.children = [];
-// 	    arr = {};
+//       const treePath = dirTree(paths);
+//       root = treePath;
+//       console.log(root);
+//       tree.loop.update({treePath});
 
-// 	    files.map(function (file) {
-// 	        return path.join(paths, file);
-// 	    }).filter(function (file) {
-// 	        return fs.statSync(file).isFile();
-// 	    }).forEach(function (file) {
-// 	    	arr.name = path.basename(file);
-// 	    	arr.children = [];
-// 	    	folderTree.children.push(arr);
-// 	        // console.log("%s (%s)", path.basename(file), path.extname(file));
-// 	    });
-// 	});
+
+//       // root = folderTree;
+//       // console.log("Root: ", root);
+//       // tree.loop.update({root});
+//   });
 // }
 
 // function showDir(paths){
@@ -72,11 +70,11 @@ window.onload = () => {
     //   tree.loop.update({ root });
     // }, false);
 
-    const tree = require('electron-tree-view')({
+    tree = require('electron-tree-view')({
       root,
       	children: c => c.children,
       	label: c => c.name,
-      	container: document.querySelector('.container')
+      	container: document.querySelector('.fileContainer')
     });
 
     // tree.on('selected', elem => {

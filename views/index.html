@@ -25,24 +25,23 @@
 	</div>
 
 	<div class="container-fluid">
-		<div class="row mt-1">
-			<div class="col-2" style="overflow: scroll;">
-				<p class="text-uppercase m-3" style="font-size: 13px;">open files</p>
+		<div class="sidebar">
+			<div class="resizeBar"></div>
+			<p class="text-uppercase m-3" style="font-size: 13px;">open files</p>
 
-				<p class="text-uppercase m-3" style="margin-top: 34px;font-size: 13px;">Folders</p>
-				<div class="container"></div>
-			</div>
-			<div class="col-10">
-				<ul class="nav nav-tabs" id="itemBar" role="tablist">
-					<li role="presentation" id="item" class="nav-item">
-						<a href="#new" aria-controls="new" data-toggle="tab" role="tab" class="nav-link active">untitled<span class="tabClose"><i class="material-icons s18">close</i></span></a>
-					</li>
-				</ul>
+			<p class="text-uppercase m-3" style="margin-top: 34px;font-size: 13px;">Folders</p>
+			<div class="fileContainer" style="margin-right: 5px;"></div>
+		</div>
+		<div class="mainTabs">
+			<ul class="nav nav-tabs" id="itemBar" role="tablist">
+				<li role="presentation" id="item" class="nav-item">
+					<a href="#new" aria-controls="new" data-toggle="tab" role="tab" class="nav-link active">untitled<span class="tabClose"><i class="material-icons s18">close</i></span></a>
+				</li>
+			</ul>
 
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="new">
-						<div id="codeArea" onclick="addInstance(this.id);" style="width: 100%;height: 100vh;"></div> 
-					</div>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="new">
+					<div id="codeArea" onclick="addInstance(this.id);" style="width: 100%;height: 100vh;"></div> 
 				</div>
 			</div>
 		</div>

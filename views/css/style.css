@@ -7,6 +7,24 @@ body{
 	overflow: hidden;
 }
 
+.mainTabs{
+	height: 100%;
+}
+
+.sidebar{
+	width: 150px;
+	float: left;
+	height: 100vh;
+}
+
+.resizeBar{
+	height: 100vh;
+	float: right;
+	width: 2px;
+	cursor: col-resize;
+	background: #2f2f2f;
+}
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;

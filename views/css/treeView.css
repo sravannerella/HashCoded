@@ -1,0 +1,16 @@
+.tree-view span:hover{
+	color: #7DC6BF;
+}
+
+.tree-view .header{
+	text-transform: none;
+}
+
+.tree-view span{
+	color: #fff;
+}
+
+.tree-view .active > a > div > span{
+	font-weight: 400;
+	color: #7DC6BF;
+}

@@ -45,7 +45,8 @@ function codeArea(id){
             	$(find).children('span.tabClose').click()
         },
         "O": function(cm){
-        	showDir("/Users/sravannerella/Documents/My Projects/HashCoded/");
+        	console.log("OPen");
+        	// showDir("/Users/sravannerella/Documents/My Projects/HashCoded/");
         },
         "I": function(cm){
             	CodeMirror.commands.indentAuto(instances[id]);

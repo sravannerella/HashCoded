@@ -11,10 +11,11 @@ function createWindow(){
 		minHeight: 500,
   		minWidth: 500,
   		icon: myIcon,
+  		fullscreen: true,
 		frame: false
 	});
 
-	window.webContents.openDevTools();
+	// window.webContents.openDevTools();
 
 	window.loadURL(
 		url.format({
@@ -25,6 +26,9 @@ function createWindow(){
 	);
 
 	window.setMenu(null);
+	window.on('closed', ()=>{
+		window = null;
+	});
 }
 
 app.on('ready', createWindow);

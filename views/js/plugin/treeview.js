@@ -1,7 +1,7 @@
 const dirTree = require('directory-tree');
 
-window.onload = () => {
-	const root = dirTree('/Users/sravannerella/Documents/My Projects/HashCoded/');
+function showDir(paths){
+	const root = dirTree(paths);
 
 	for (var i = 0; i < root.children.length; i++) {
 		if(root.children[i].name === '.git'){

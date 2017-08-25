@@ -2,6 +2,7 @@ const $ = require('jquery');
 window.$ = window.jQuery = $;
 const {remote} = require('electron');
 let win = remote.getCurrentWindow();
+const os = require('os');
 
 var itemIDs = 0;
 
@@ -11,10 +12,19 @@ $(".minimize").click(function(){
 });
 
 $(".maximize").click(function(){
-	if(!win.isMaximized()){
-		win.maximize();
-	} else {
-		win.unmaximize();
+	if(os.EOL === "\n"){
+		if(!win.isFullScreen()){
+			win.setFullScreen(true);
+		} else{
+			win.setFullScreen(false);
+		}
+	} else if(os.EOL === "\r\n"){
+		console.log("Windows");
+		if(!win.isMaximized()){
+			win.maximize();
+		} else{
+			win.unmaximize();
+		}
 	}
 	
 });
@@ -76,7 +86,6 @@ $('.resizeBar').mousedown(function (e) {
 $(document).mouseup(function (e) {
     $(document).unbind('mousemove');
 });
-
 
 $("#itemBar").on('click', '#item', function(e){
 	e.preventDefault();
